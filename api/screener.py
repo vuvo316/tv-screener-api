@@ -14,7 +14,7 @@ class handler(BaseHTTPRequestHandler):
         try:
             # Example Query: Top 50 Stocks by Volume > 1M and Change > 5%
             n_rows, df = (Query()
-                          .select('symbol', 'name', 'close', 'volume', 'change', 'relative_volume_10d_calc')
+                          .select('name', 'close', 'volume', 'change', 'relative_volume_10d_calc')
                           .where(
                 Column('change') > 5,
                 Column('volume') > 1000000
