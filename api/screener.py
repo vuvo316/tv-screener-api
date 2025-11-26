@@ -14,7 +14,7 @@ class handler(BaseHTTPRequestHandler):
         try:
             # Example Query: Top 50 Stocks by Volume > 1M and Change > 5%
             n_rows, df = (Query()
-                          .select('ticker', 'name', 'close', 'volume', 'change', 'relative_volume_10d_calc')
+                          .select('symbol', 'name', 'close', 'volume', 'change', 'relative_volume_10d_calc')
                           .where(
                 Column('change') > 5,
                 Column('volume') > 1000000
@@ -24,7 +24,7 @@ class handler(BaseHTTPRequestHandler):
                 .get_scanner_data())
 
             # Convert the DataFrame to a list of dictionaries (JSON format)
-            stock_list = df.to_dict('records')
+            stock_list = df.fillna('').to_dict('records')
             response_body = json.dumps(stock_list, indent=2)
 
             # --- Send the HTTP Response ---
