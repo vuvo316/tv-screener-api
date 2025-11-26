@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/stocks",
+      "destination": "/api/screener"
+    }
+  ]
+}
