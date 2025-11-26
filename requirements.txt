@@ -1,0 +1,4 @@
+# tradingview-screener is your core dependency
+tradingview-screener
+# pandas is needed for DataFrame handling
+pandas
